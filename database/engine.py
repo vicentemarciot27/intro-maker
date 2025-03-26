@@ -4,6 +4,11 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import boto3
 from sqlalchemy import inspect
+import streamlit as st
+
+os.environ["AWS_ACCESS_KEY_ID"] = st.secrets["aws"]["access_key_id"]
+os.environ["AWS_SECRET_ACCESS_KEY"] = st.secrets["aws"]["secret_access_key"]
+os.environ["AWS_REGION"] = st.secrets["aws"]["region"]
 
 # Load environment variables from .env
 load_dotenv()
