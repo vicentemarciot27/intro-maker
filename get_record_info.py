@@ -7,6 +7,11 @@ import time
 from database.engine import create_db
 from services.find_record import list_record_entries
 from services.web_scraper import get_search_results
+import os
+import streamlit as st
+
+os.environ["ATTIO_API_KEY"] = st.secrets["attio"]["api_key"]
+
 db, engine = create_db()
 
 def get_record_id_from_name(name: str, object: Literal["companies", "people"], additional_info: str = ""):
