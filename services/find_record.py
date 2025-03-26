@@ -3,6 +3,11 @@ import os
 import json
 from pathlib import Path
 from collections import defaultdict
+import os
+import streamlit as st
+
+os.environ["ATTIO_API_KEY"] = st.secrets["attio"]["api_key"]
+ATTIO_API_KEY = st.secrets["attio"]["api_key"]
 
 def get_list_name_from_slug(list_slug:str):
     lists_json = json.load(open(Path(__file__).parent / "lists.json"))
@@ -11,7 +16,6 @@ def get_list_name_from_slug(list_slug:str):
             return list["name"]
     raise ValueError(f"List slug {list_slug} not found")
 
-ATTIO_API_KEY = os.getenv("ATTIO_API_KEY")
 PATH_TO_LISTS_JSON = Path("./lists.json")
 
 def list_record_entries(record_id: str, object: str):
