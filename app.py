@@ -242,11 +242,13 @@ with tab1:
             company = st.text_input("Company Name", value=st.session_state.company_data["company"])
             description_company = st.text_area(
                 "Company Description", 
-                value=st.session_state.company_data["description_company"]
+                value=st.session_state.company_data["description_company"],
+                height=125
             )
             description_person = st.text_area(
                 "Representative Description", 
-                value=st.session_state.company_data["description_person"]
+                value=st.session_state.company_data["description_person"],
+                height=125
             )
             industry = st.text_input(
                 "Industry", 
