@@ -11,6 +11,18 @@ from langchain.output_parsers.structured import StructuredOutputParser
 import asyncio
 from pydantic import BaseModel
 from services.web_scraper import get_search_results
+import os
+
+# Carregar dados do DataFrame
+df = load_data()
+
+os.environ["OPENAI_API_KEY"] = st.secrets["openai"]["api_key"]
+os.environ["AWS_ACCESS_KEY_ID"] = st.secrets["aws"]["access_key_id"]
+os.environ["AWS_SECRET_ACCESS_KEY"] = st.secrets["aws"]["secret_access_key"]
+os.environ["AWS_REGION"] = st.secrets["aws"]["region"]
+os.environ["ANTHROPIC_API_KEY"] = st.secrets["anthropic"]["api_key"]
+os.environ["SUPABASE_URL"] = st.secrets["supabase"]["url"]
+os.environ["SUPABASE_KEY"] = st.secrets["supabase"]["key"]
 
 # Configuração da página
 st.set_page_config(
@@ -268,7 +280,7 @@ with tab1:
             value=st.session_state.company_data["observations"]
         )
         
-        submitted = st.form_submit_button("Get introduceable funds")
+        submitted = st.form_submit_button("Run Recommendations")
         
         if submitted:
             # Atualizar os dados da empresa no estado da sessão
@@ -381,10 +393,15 @@ if st.session_state.results:
     # Criar DataFrame para exibição
     fund_data = []
     for fund in st.session_state.results["top_funds"]:
+        cols_to_show = ["proximity", "Fund Quality","description", "leader?", "prefered_industry_enriched"]
+        df.rename(columns={"vc_quality_perception": "Fund Quality"}, inplace=True)
+        # Buscar todas as informações do fundo no DataFrame original
+        fund_info = df[cols_to_show][df["name"] == fund.fund_name].iloc[0].to_dict()
         fund_data.append({
             "Fund Name": fund.fund_name,
             "Score": round(fund.score, 0),
-            "Reason": fund.reason
+            "Reason": fund.reason,
+            **fund_info  # Incluir todas as outras colunas do fundo
         })
     
     result_df = pd.DataFrame(fund_data)

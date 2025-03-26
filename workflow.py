@@ -16,6 +16,9 @@ import concurrent.futures
 from functools import partial
 import boto3
 from botocore.config import Config
+import streamlit as st
+
+service_account_info = st.secrets["service_account"]
 
 config = Config(read_timeout=1000)
 
@@ -66,8 +69,8 @@ class FundScoreList(BaseModel):
 # Carregamento e preparação dos dados
 def load_data():
     # Configurar credenciais
-    credentials = service_account.Credentials.from_service_account_file(
-        ".secrets/service-account-admin.json",
+    credentials = service_account.Credentials.from_service_account_info(
+        service_account_info,
         scopes=['https://www.googleapis.com/auth/spreadsheets', 
                 'https://www.googleapis.com/auth/drive']
     )
@@ -91,8 +94,8 @@ def load_data():
 # Carregamento de documentos do Google Docs
 def setup_gdocs():
     SCOPES = ['https://www.googleapis.com/auth/documents.readonly']
-    creds = service_account.Credentials.from_service_account_file(
-        '.secrets/service-account-admin.json',
+    creds = service_account.Credentials.from_service_account_info(
+        service_account_info,
         scopes=SCOPES
     )
     
