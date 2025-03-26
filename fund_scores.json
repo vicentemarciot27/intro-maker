@@ -1,0 +1,197 @@
+[
+  {
+    "fund_name": "Andreessen Horowitz",
+    "score": 70.0,
+    "reason": "Meeting Frequency: Monthly = 10 points. VC Quality: Top-tier VC with 5/5 quality. Investment Range: $1-5mn range fits well with $2M commitment, but not ideal for leader position in a $10M round = 3 points. Investment Geography: Global presence includes Brazil/Latam = 3 points. Funding Rounds: Invests regardless of stage, including Series A = 5 points. Observations: Focusing more on Series A+ is a positive signal = 2 points. Preferred Industry: Their focus areas include AI, Consumer, and Fintech which aligns with Brendi's AI Solutions and Food Delivery = 5 points."
+  },
+  {
+    "fund_name": "big_bets",
+    "score": 83.33333333333333,
+    "reason": "Meeting Frequency: Monthly = 10 points. VC Quality: High-quality VC at 4/5. Investment Range: $1-5mn range is appropriate for the $2M commitment but not ideal for leading a $10M round = 3 points. Investment Geography: Brazil-focused which perfectly matches Brendi = 5 points. Funding Rounds: Explicitly includes Series A = 5 points. Observations: Brazil and Global thesis works well with the company = 2 points. Preferred Industry: Focus on AI, SaaS aligns well with Brendi's AI solutions = 7 points."
+  },
+  {
+    "fund_name": "NXTP Ventures",
+    "score": 63.333333333333336,
+    "reason": "Meeting Frequency: Monthly = 10 points. VC Quality: Good quality at 4/5. Investment Range: $1-5mn range fits the commitment but is too small to lead a $10M round = 2 points. Investment Geography: Latam focus includes Brazil = 4 points. Funding Rounds: Series A is in their focus = 5 points. Observations: B2B focused, Marketplace and E-commerce align with food delivery platform = 1 point. Preferred Industry: Some alignment with AI and data-driven businesses = 4 points."
+  },
+  {
+    "fund_name": "Alexia Ventures",
+    "score": 83.33333333333333,
+    "reason": "Meeting Frequency: Monthly = 10 points. VC Quality: High quality at 4/5. Investment Range: $1-5mn range fits commitment but not ideal for leading $10M round = 3 points. Investment Geography: Brazil-focused, perfect match = 5 points. Funding Rounds: Series A explicitly mentioned = 5 points. Observations: SaaS and AI businesses focus matches perfectly = 3 points. Preferred Industry: Software Platforms and Data/AI align very well with Brendi's focus = 6 points."
+  },
+  {
+    "fund_name": "Bridge Latam",
+    "score": 13.333333333333334,
+    "reason": "Meeting Frequency: Bimonthly = 6 points. VC Quality: Average at 3/5. Investment Range: <$1mn is too small for a $2M commitment = 0 points. Investment Geography: Latam ex-Brazil is not ideal since Brendi is focused on Brazilian restaurants = 2 points. Funding Rounds: Focuses on Pre-Seed and Seed, not Series A = 0 points. Observations: 'Agnostic, low bar for investments' suggests less selective = 0 points. Preferred Industry: Their focus isn't closely aligned with AI or food delivery = 3 points."
+  },
+  {
+    "fund_name": "Marathon Ventures",
+    "score": 0.0,
+    "reason": "Meeting Frequency: Bimonthly = 6 points. VC Quality: Average at 3/5. Investment Range: <$1mn is too small for the commitment = 0 points. Investment Geography: Latam ex-Brazil doesn't match Brendi's Brazil focus = 1 point. Funding Rounds: Pre-Seed and Seed, not Series A = 0 points. Observations: B2B only could be relevant but not perfect for consumer-facing delivery = 1 point. Preferred Industry: No specific focus on AI or food delivery = 2 points."
+  },
+  {
+    "fund_name": "Volpe Capital",
+    "score": 20.0,
+    "reason": "Meeting Frequency: Quarterly = 3 points. VC Quality: Average at 3/5. Investment Range: $1-5mn and $5-10mn ranges could work for the commitment = 4 points. Investment Geography: Brazil-focused, perfect match = 5 points. Funding Rounds: Series A is in their focus = 5 points. Observations: 'Needs traction' may be favorable for a Series A company = 1 point. Preferred Industry: No specific focus on AI or food delivery = 3 points. Industry Agnostic: True = neutral on industry score."
+  },
+  {
+    "fund_name": "Citrino Ventures",
+    "score": 36.666666666666664,
+    "reason": "Meeting Frequency: Bimonthly = 6 points. VC Quality: Average at 3/5. Investment Range: $1-5mn range fits with the commitment but not ideal for leading a $10M round = 3 points. Investment Geography: Brazil-focused, perfect match = 5 points. Funding Rounds: Seed and Series A explicitly mentioned = 5 points. Observations: B2B, Agnostic approach may work, but not specialized in Brendi's area = 1 point. Preferred Industry: Business/Productivity Software is somewhat related but no specific food or AI focus = 3 points."
+  },
+  {
+    "fund_name": "30N Ventures",
+    "score": 10.0,
+    "reason": "Meeting Frequency: Bimonthly = 6 points. VC Quality: Below average at 2/5. Investment Range: $1-5mn and $5-10mn ranges fit, but they're described as a follower, not a leader = 1 point. Investment Geography: Latam ex-Brazil doesn't perfectly match Brazil focus = 2 points. Funding Rounds: Series A is in their focus = 5 points. Observations: Explicitly mentioned as follower while Brendi needs a leader = -5 points. Preferred Industry: Retailtech and E-commerce are somewhat related to food delivery = 4 points."
+  },
+  {
+    "fund_name": "Across Capital Partners",
+    "score": 23.333333333333332,
+    "reason": "Meeting Frequency: Bimonthly = 6 points. VC Quality: High quality at 4/5. Investment Range: $5-10mn range could work well for a leader in a $10M round = 4 points. Investment Geography: Brazil-focused, perfect match = 5 points. Funding Rounds: Focuses on Series B and later, not Series A = 0 points. Observations: Requires >$5M ARR, which may be challenging for Brendi at Series A = -1 point. Preferred Industry: Technology sector is relevant but no specific focus on AI or food delivery = 3 points."
+  },
+  {
+    "fund_name": "ONEVC",
+    "score": 83.33333333333333,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 5.0, top-tier fund (5 points). Investment range: USD 1-5mn fits the Series A round asking for 2M USD as a leader (5 points). Investment geography: Brazil-focused which perfectly matches the company (5 points). Funding rounds: Seed focus, but could stretch to Series A (3 points). Observations: Has reputation as 'rising top-tier fund' which matches the need for hot deal partners (4 points). Preferred industry: AI and tech focus aligns with Brendi's AI agents, though not specifically food delivery (4 points). They have many intros made (23) showing strong network which is valuable for a hot deal. Overall a strong fit for this Brazilian AI company."
+  },
+  {
+    "fund_name": "Headline",
+    "score": 76.66666666666667,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 3.0, solid (3 points). Investment range: USD 1-5mn perfectly matches the 2M USD ask as a leader (5 points). Investment geography: Brazil-focused which matches the company location (5 points). Funding rounds: Series A focus matches exactly what Brendi is raising (5 points). Observations: Looks for 'PE-like deals' which may match the market opportunity (3 points). Preferred industry: Growth-stage technology aligns with AI solutions (3 points). Description mentions they 'go to the ends of the earth' for portfolio companies showing strong commitment. Has strong network with 13 intros made."
+  },
+  {
+    "fund_name": "SaaSholic",
+    "score": 66.66666666666667,
+    "reason": "Meeting Frequency: Monthly (10 points). VC quality: Rated 3.0, solid (3 points). Investment range: USD 1-5mn would work for the 2M USD ask, but mainly does smaller deals (3 points). Investment geography: Brazil-focused which perfectly matches the company (5 points). Funding rounds: Pre-Seed and Seed focus, not aligned with Series A (1 point). Preferred industry: Focus on SaaS and recurring business models which partially aligns with Brendi's AI solution (3 points). They have strong network with 15 intros made showing good connections. Description mentions 'best Latam companies' which aligns with a hot deal opportunity (2 points)."
+  },
+  {
+    "fund_name": "Dalus Capital",
+    "score": 50.0,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 3.0, solid (3 points). Investment range: USD 1-5mn fits the 2M USD ask (5 points). Investment geography: Latam ex-Brazil which is adjacent but not perfect (3 points). Funding rounds: Series A, B, C focus aligns well with this Series A round (5 points). Preferred industry: Technology focus but not specifically AI or food delivery (2 points). Description mentions technology-driven solutions promoting access and inclusion, which could align with democratizing food delivery (2 points). Less network in Brazil with only 7 intros made and 0 received, which may be challenging for a Brazil-focused company."
+  },
+  {
+    "fund_name": "Amador",
+    "score": 40.0,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 2.0, lower tier (2 points). Investment range: <USD 1mn is too small for the Series A 2M USD ask (-2 points). Investment geography: Latam but not specifically Brazil focused (3 points). Funding rounds: Pre-Seed and Seed focus, not aligned with Series A (1 point). Preferred industry: Does not list AI or food delivery in focus areas (1 point). Description mentions supporting businesses catering to urban middle classes which could align with food delivery concept (3 points). Has 5 intros made showing some network. Overall not positioned for leading a Series A in this space."
+  },
+  {
+    "fund_name": "Zenda",
+    "score": 60.0,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 3.0, solid (3 points). Investment range: <USD 1mn is smaller than the 2M USD ask for a leader (1 point). Investment geography: Latam ex-Brazil, adjacent but not perfect (3 points). Funding rounds: Pre-Seed and Seed focus, not ideal for Series A (1 point). Preferred industry: AI Solutions explicitly listed as a focus area which directly matches Brendi (5 points). Observations: Strong network with 18 intros made (4 points). Description mentions specializing in B2B tech investments reshaping industries with innovative technology, which aligns with Brendi's approach to restaurant tech (2 points)."
+  },
+  {
+    "fund_name": "Fen Ventures",
+    "score": 46.666666666666664,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 3.0, solid (3 points). Investment range: Not specified, uncertain fit (0 points). Investment geography: Latam ex-Brazil, not ideal for a Brazilian company (3 points). Funding rounds: Lists Series A among their focus areas (4 points). Preferred industry: Lists AI and B2B which partially matches Brendi's focus (3 points). Has limited network with only 1 intro made and 1 received (0 points). Digital Consumer is listed as a focus which could include food delivery (2 points)."
+  },
+  {
+    "fund_name": "Hi Ventures",
+    "score": 43.333333333333336,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 4.0, good (4 points). Investment range: USD 1-5mn matches the 2M USD ask (5 points). Investment geography: Latam ex-Brazil, not ideal for Brazilian company (3 points). Funding rounds: Lists Series A among their focus areas (4 points). Preferred industry: Not clearly specified (0 points). Observation specifically states they don't do tech-enabled companies, which might conflict with Brendi's AI-driven approach (-3 points). Limited network with only 4 intros made (1 point)."
+  },
+  {
+    "fund_name": "Credit Saison",
+    "score": 36.666666666666664,
+    "reason": "Meeting Frequency: Bimonthly (6 points). VC quality: Rated 3.0, solid (3 points). Investment range: Not specified (0 points). Investment geography: Global, not specifically focused on Brazil (2 points). Funding rounds: Pre-Seed and Seed focus, not aligned with Series A (1 point). Preferred industry: Fintech, Web 3.0, E-commerce which has some overlap with Brendi's embedded finance component (2 points). Good network with 12 intros made (3 points). Description mentions supporting innovative founders which is positive but not industry-aligned (1 point)."
+  },
+  {
+    "fund_name": "Mira Capital",
+    "score": 30.0,
+    "reason": "Meeting Frequency: Quarterly (3 points). VC quality: Not rated (0 points). Investment range: Not specified (0 points). Investment geography: Global, not Brazil-focused (2 points). Funding rounds: Not specified (0 points). Preferred industry: Lists AI which matches Brendi, but as a family office may not have the specific domain expertise (3 points). Very limited network with only 2 intros made and 1 received (0 points). Listed as a multi-family office which may not be the best fit for a hot Series A deal that needs strong investor support (1 point). Marketplace experience could be relevant for food delivery platforms (2 points)."
+  },
+  {
+    "fund_name": "Kaszek",
+    "score": 96.66666666666667,
+    "reason": "Meeting Frequency: 10 (monthly meetings show high engagement)\nVC quality: 5 (top-tier fund with excellent reputation)\nInvestment range: 4 (offers USD 5-10mn range which fits Series A with 10M round size, though as a leader they might need more commitment)\nInvestment geography: 5 (focused on Latam including Brazil which is perfect for a Brazilian restaurant tech company)\nFunding rounds: 5 (invests 'Regardless' of round type, including Series A)\nObservations: 3 (top-tier fund fitting the requirement of wanting top funds)\nPreferred industry: 4 (invests in tech disruption including marketplaces which aligns with food delivery and AI solutions)"
+  },
+  {
+    "fund_name": "Monashees",
+    "score": 100.0,
+    "reason": "Meeting Frequency: 10 (monthly meetings)\nVC quality: 5 (top-tier fund)\nInvestment range: 4 (offers USD 5-10mn range suitable for Series A round of 10M)\nInvestment geography: 5 (Brazil-focused which perfectly matches the company's location)\nFunding rounds: 5 (invests 'Regardless' of round type, including Series A)\nObservations: 3 (top-tier fund matching the requirement for quality partners)\nPreferred industry: 5 (explicitly mentions marketplaces, e-commerce, and tech companies with high potential scale which aligns well with Brendi's AI-powered food delivery business)"
+  },
+  {
+    "fund_name": "DST Global",
+    "score": 73.33333333333333,
+    "reason": "Meeting Frequency: 6 (bimonthly meetings show good but not optimal engagement)\nVC quality: 5 (high quality global investor)\nInvestment range: 4 (has USD 5-10mn range that fits Series A of 10M)\nInvestment geography: 3 (global focus but not specifically Brazil-focused)\nFunding rounds: 5 (invests 'Regardless' of stage)\nObservations: 0 (no specific observations)\nPreferred industry: 6 (strong focus on consumer internet and AI/ML which aligns well with Brendi's business model)"
+  },
+  {
+    "fund_name": "Canary",
+    "score": 50.0,
+    "reason": "Meeting Frequency: 10 (monthly meetings)\nVC quality: 5 (high quality Brazil-focused investor)\nInvestment range: 2 (typically invests < USD 1mn or USD 1-5mn which is too small for a Series A leader role)\nInvestment geography: 5 (Brazil focus which perfectly matches the company's location)\nFunding rounds: 0 (focuses on Pre-Seed and Seed, not Series A)\nObservations: 0 (no specific relevant observations)\nPreferred industry: 0 (focused on early-stage which doesn't match Series A requirement)"
+  },
+  {
+    "fund_name": "Quona Capital",
+    "score": 56.666666666666664,
+    "reason": "Meeting Frequency: 10 (monthly meetings show high engagement)\nVC quality: 4 (good quality investor)\nInvestment range: 2 (USD 1-5mn range which is slightly low for a Series A leader)\nInvestment geography: 2 (global with emerging markets focus, including Latam)\nFunding rounds: 3 (invests in Series A but prefers earlier stages)\nObservations: 0 (no specific observations)\nPreferred industry: 3 (focus on fintech and embedded finance aligns with one aspect of Brendi's business - embedded finance)"
+  },
+  {
+    "fund_name": "Tidemark",
+    "score": 33.333333333333336,
+    "reason": "Meeting Frequency: 6 (bimonthly meetings)\nVC quality: 5 (high quality perception)\nInvestment range: 3 (offers USD 5-10mn range appropriate for Series A)\nInvestment geography: 0 (global with USA focus, not specifically targeting Brazil/Latam)\nFunding rounds: 3 (focuses on Series B and later, not ideal for Series A)\nObservations: 0 (no specific observations)\nPreferred industry: 0 (focused on Vertical SaaS but not specifically food delivery or AI agents)"
+  },
+  {
+    "fund_name": "HOF Capital",
+    "score": 40.0,
+    "reason": "Meeting Frequency: 3 (quarterly meetings show moderate engagement)\nVC quality: 3 (moderate quality investor)\nInvestment range: 3 (offers USD 5-10mn range suitable for Series A)\nInvestment geography: 2 (global focus, not specifically targeting Brazil/Latam)\nFunding rounds: 4 (Series A is within their focus)\nObservations: 0 (no specific observations)\nPreferred industry: 4 (focus on fintech for financial inclusion has some alignment with embedded finance component)"
+  },
+  {
+    "fund_name": "Magma Partners",
+    "score": 33.333333333333336,
+    "reason": "Meeting Frequency: 6 (bimonthly meetings)\nVC quality: 2 (lower quality perception)\nInvestment range: 1 (investment range not specified, but likely too small for a Series A leader)\nInvestment geography: 5 (Latam focus matches company geography)\nFunding rounds: 0 (funding rounds not specified)\nObservations: 0 (no specific observations)\nPreferred industry: 3 (focus on marketplaces has some alignment with food delivery platform)"
+  },
+  {
+    "fund_name": "500 Startups",
+    "score": 23.333333333333332,
+    "reason": "Meeting Frequency: 6 (bimonthly meetings)\nVC quality: 3 (assumed average quality based on global presence)\nInvestment range: 0 (focuses on < USD 1mn investments which is too small for Series A leader)\nInvestment geography: 3 (Latam ex-Brazil focus, not ideal for Brazilian company)\nFunding rounds: 0 (focuses on Pre-Seed, not Series A)\nObservations: 0 (no specific observations)\nPreferred industry: 2 (diversified approach with some marketplace experience)"
+  },
+  {
+    "fund_name": "Propel Venture Partners",
+    "score": 26.666666666666668,
+    "reason": "Meeting Frequency: 6 (bimonthly meetings)\nVC quality: 3 (moderate quality investor)\nInvestment range: 2 (USD 1-5mn range which is too small for Series A leader)\nInvestment geography: 0 (Global/US focus, not specifically targeting Brazil)\nFunding rounds: 3 (Series A is within their focus)\nObservations: 0 (no specific observations)\nPreferred industry: 1 (hard committed to fintech/financial services which only slightly aligns with the embedded finance component)"
+  },
+  {
+    "fund_name": "Valor Capital Group",
+    "score": 86.66666666666667,
+    "reason": "Meeting Frequency: 10 points (Monthly meetings indicate strong closeness). VC Quality: 5 points (Top-tier fund with 5.0 perception). Investment Range: 4 points (Range includes USD 10-20mn which fits the Series A size). Investment Geography: 5 points (Brazil focus perfectly matches Brendi operating in Brazilian restaurants). Funding Rounds: 4 points (Invests regardless of stage, compatible with Series A). Observations: 3 points (Good fit with Web3 and tech focus). Preferred Industry: 2 points (Some overlap with tech focus, though not specific to food delivery or AI agents)."
+  },
+  {
+    "fund_name": "Caravela Capital",
+    "score": 36.666666666666664,
+    "reason": "Meeting Frequency: 10 points (Monthly meetings). VC Quality: 3 points (3.0 perception). Investment Range: 0 points (Focus on <USD 1mn is too small for a Series A round and 2M commitment). Investment Geography: 5 points (Brazil focus perfectly matches). Funding Rounds: 0 points (Pre-Seed, Seed focus doesn't align with Series A). Observations: 0 points (No relevant observations for this deal). Preferred Industry: 0 points (Early-stage generalist without specific focus on AI/food delivery)."
+  },
+  {
+    "fund_name": "Cometa VC",
+    "score": 10.0,
+    "reason": "Meeting Frequency: 3 points (Quarterly meetings show less closeness). VC Quality: 3 points (Moderate perception). Investment Range: 0 points (Investment range not specified, likely too small for Series A). Investment Geography: -1 points (Spanish-speaking markets focus doesn't align well with Brazilian market). Funding Rounds: 0 points (No information on round preferences). Observations: 0 points (No relevant observations). Preferred Industry: 5 points (Technology focus for Spanish-speaking markets has some overlap but not ideal)."
+  },
+  {
+    "fund_name": "Astella",
+    "score": 76.66666666666667,
+    "reason": "Meeting Frequency: 6 points (Bimonthly meetings). VC Quality: 4 points (Good quality perception at 4.0). Investment Range: 5 points (Range includes multiple tiers appropriate for Series A). Investment Geography: 5 points (Brazil focus perfectly matches). Funding Rounds: 5 points (Explicitly mentions Series A investments). Observations: 3 points (GTM Strategy expertise valuable for scaling a food delivery platform). Preferred Industry: 2 points (Data/AI focus overlaps with Brendi's AI agents concept)."
+  },
+  {
+    "fund_name": "Alter Global",
+    "score": 23.333333333333332,
+    "reason": "Meeting Frequency: 10 points (Monthly meetings). VC Quality: 3 points (3.0 perception). Investment Range: 0 points (<USD 1mn too small for Series A). Investment Geography: 1 point (Emerging markets focus includes Brazil but not specific). Funding Rounds: 0 points (Pre-Seed/Seed focus doesn't match Series A). Observations: 0 points (No significant observations for this deal). Preferred Industry: 0 points (Focus on proven business models doesn't specifically align with innovative AI agents for food delivery)."
+  },
+  {
+    "fund_name": "Upload",
+    "score": 80.0,
+    "reason": "Meeting Frequency: 10 points (Monthly meetings). VC Quality: 4 points (4.0 perception). Investment Range: 1 point (Upper range of USD 1-5mn could potentially work but not ideal for leader in a 10M round). Investment Geography: 5 points (Global focus including Brazil). Funding Rounds: 3 points (Stage agnostic). Observations: 3 points (Agnostic across stages is positive). Preferred Industry: 5 points (Strong focus on AI technology aligns well with Brendi's AI agents)."
+  },
+  {
+    "fund_name": "Atlantico",
+    "score": 96.66666666666667,
+    "reason": "Meeting Frequency: 10 points (Monthly meetings). VC Quality: 4 points (4.0 perception). Investment Range: 5 points (USD 5-10mn range perfectly aligns with 10M round size and leader role). Investment Geography: 5 points (Brazil/Latam focus perfect match). Funding Rounds: 5 points (Series A explicit focus). Observations: 3 points (Agnostic approach positive). Preferred Industry: 4 points (Consumer digital and tech interests align with food delivery platform)."
+  },
+  {
+    "fund_name": "Flourish Ventures",
+    "score": 26.666666666666668,
+    "reason": "Meeting Frequency: 6 points (Bimonthly meetings). VC Quality: 4 points (4.0 perception). Investment Range: 2 points (USD 1-5mn range is below ideal for leader in 10M round). Investment Geography: 3 points (Global/Emerging Markets includes Brazil). Funding Rounds: 5 points (Series A explicit focus). Observations: 0 points (No specific observations). Preferred Industry: -5 points (Strictly fintech focus doesn't align with food delivery, though Brendi mentions embedded finance as a secondary focus)."
+  },
+  {
+    "fund_name": "J.P. Morgan & Co.",
+    "score": 50.0,
+    "reason": "Meeting Frequency: 6 points (Bimonthly meetings). VC Quality: 5 points (High implied quality as global bank). Investment Range: 3 points (Range not specified but likely has capacity for Series A). Investment Geography: 3 points (Global presence includes Brazil). Funding Rounds: 3 points (No specific information but likely capable of Series A). Observations: 0 points (Mentions potential for fintech investment but not relevant to primary business). Preferred Industry: 2 points (Some alignment with B2B SaaS and AI interests, but primarily focused on fintech and financial services)."
+  }
+]

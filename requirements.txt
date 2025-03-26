@@ -1,0 +1,56 @@
+# Core Web Framework
+fastapi==0.115.7
+uvicorn==0.34.0
+mangum==0.19.0
+starlette==0.45.2
+requests
+
+# data
+pandas==2.2.2
+
+# AWS
+PyAthena==3.12.2
+
+# Database
+SQLAlchemy==2.0.37
+
+# LangChain & AI
+langchain==0.3.20 
+langchain-anthropic==0.3.5
+langchain-community==0.3.19
+langchain-openai==0.3.3
+langchain-google-genai==2.0.0
+langchain-ollama==0.2.3
+langchain-aws
+langgraph==0.2.69
+anthropic==0.45.2
+openai==1.60.0
+google-generativeai==0.7.2
+faiss-cpu
+
+# Google API
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.120.0
+
+# Date/Time
+pytz==2024.1
+python-dateutil==2.9.0
+
+# Utilities
+python-dotenv==1.0.1
+pydantic>=2.10
+requests==2.32.3
+typing_extensions==4.12.2
+python-multipart==0.0.20
+email-validator==2.1.0.post1
+
+# Logging
+structlog==24.4.0
+
+# Development
+ruff==0.9.4
+
+# Web Scraper
+beautifulsoup4==4.12.3
+aiohttp

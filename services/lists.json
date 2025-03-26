@@ -1,0 +1,450 @@
+{
+    "data": [
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "f5503ed4-7cfe-4da1-807b-caa647436004"
+            },
+            "api_slug": "fundraising",
+            "created_at": "2021-09-28T13:41:55.066000000Z",
+            "name": "Fundraising Fund 2",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "b4954f7c-a8a3-4502-b65d-fa26558850f7"
+                }
+            ],
+            "parent_object": [
+                "people",
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": null,
+                "id": null
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "2f9df460-64e5-4c8c-874a-42bc5ab3a8ad"
+            },
+            "api_slug": "deals_engaged",
+            "created_at": "2024-03-21T15:13:04.540000000Z",
+            "name": "Deals Engaged",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "1f76633a-5e60-4f2c-b896-19e17a6990bf"
+            },
+            "api_slug": "portfolio_companies",
+            "created_at": "2024-03-05T19:41:43.523000000Z",
+            "name": "Portfolio Companies",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "63f0ac74-79b0-450b-aea6-f0fea0399a35"
+            },
+            "api_slug": "investor_engagement",
+            "created_at": "2024-01-22T18:04:37.559000000Z",
+            "name": "LPs Norte & SPVs",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+                }
+            ],
+            "parent_object": [
+                "people"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "0b4bef21-b87a-41bd-9704-e26f498955c1"
+            },
+            "api_slug": "startup_fundraising_1",
+            "created_at": "2023-08-31T13:56:21.732000000Z",
+            "name": "Fund Relations",
+            "workspace_access": "read-and-write",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "7588d776-cba0-4256-9345-0fc1aa2d6b25"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "7588d776-cba0-4256-9345-0fc1aa2d6b25"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "aa6911aa-babb-4fd8-94bc-7e81f71dc7b9"
+            },
+            "api_slug": "not_engaged_deals",
+            "created_at": "2024-02-19T19:15:45.805000000Z",
+            "name": "Non-engaged deals",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "dad03680-2057-47a1-b2e0-0579a709218a"
+            },
+            "api_slug": "new_list_1",
+            "created_at": "2023-09-19T20:54:12.663000000Z",
+            "name": "Rounds Raised",
+            "workspace_access": null,
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "1eac658e-e87f-4445-8736-9a08a965db42"
+                },
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "b4954f7c-a8a3-4502-b65d-fa26558850f7"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "b4954f7c-a8a3-4502-b65d-fa26558850f7"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "1c8bcdc6-ba53-45e8-91e9-fa861d4cedde"
+            },
+            "api_slug": "new_list_5",
+            "created_at": "2024-02-01T22:00:10.079000000Z",
+            "name": "Intros to Funds",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "dc6448a1-8360-4155-a50f-76a0df97207f"
+            },
+            "api_slug": "intro_not_to_funds",
+            "created_at": "2024-04-18T17:39:36.951000000Z",
+            "name": "Commercial, Hiring and other Intros",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "cea2aa9e-d996-427f-a4fe-1ca25ec0c342"
+            },
+            "api_slug": "dealflow_visibility",
+            "created_at": "2024-03-04T13:45:36.814000000Z",
+            "name": "Dealflow Visibility",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "ee85d617-8c85-4855-b93e-48f8a513d9f5"
+            },
+            "api_slug": "exit_details",
+            "created_at": "2024-02-05T20:41:09.339000000Z",
+            "name": "Exit Details",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "4d07d807-11eb-4403-a604-292baf21a0d3"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "ba186593-0d66-49b0-9c88-256e777cb08f"
+            },
+            "api_slug": "recruiting_3",
+            "created_at": "2024-04-02T17:38:05.248000000Z",
+            "name": "Deliverables Pipeline",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+                }
+            ],
+            "parent_object": [
+                "people"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "a0194114-a135-408a-995c-a659813b103a"
+            },
+            "api_slug": "norte_events_sponsors",
+            "created_at": "2024-04-24T23:53:48.588000000Z",
+            "name": "Norte Sponsors",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "22e01684-238e-4ce7-a875-e3844ce301f6"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "12b77496-f1a7-41f6-ae41-25c53d220538"
+            },
+            "api_slug": "events_4",
+            "created_at": "2024-08-20T17:10:15.546000000Z",
+            "name": "Events",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "d2fd89ae-1158-4fcb-955f-313d9fb81edf"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "d2fd89ae-1158-4fcb-955f-313d9fb81edf"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "a6841285-7df5-4655-8b50-085a26f9b1c6"
+            },
+            "api_slug": "hiring",
+            "created_at": "2024-10-13T22:18:24.906000000Z",
+            "name": "Hiring",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "2b68bb0e-49c0-4752-b42a-6a7a3e745baa"
+                }
+            ],
+            "parent_object": [
+                "people"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "2b68bb0e-49c0-4752-b42a-6a7a3e745baa"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "efa467c9-b7d6-4d6e-856d-1ccfd12e44e6"
+            },
+            "api_slug": "fundraising_fund_3_companies",
+            "created_at": "2025-01-12T23:36:09.377000000Z",
+            "name": "Fundraising Fund 3 (Companies)",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "d2fd89ae-1158-4fcb-955f-313d9fb81edf"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "d2fd89ae-1158-4fcb-955f-313d9fb81edf"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "278d93bc-7d46-4448-a809-655ef87901ee"
+            },
+            "api_slug": "portfolio_support",
+            "created_at": "2025-01-22T21:31:57.076000000Z",
+            "name": "Portfolio Support",
+            "workspace_access": null,
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "1eac658e-e87f-4445-8736-9a08a965db42"
+                },
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "d2fd89ae-1158-4fcb-955f-313d9fb81edf"
+                }
+            ],
+            "parent_object": [
+                "companies"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "d2fd89ae-1158-4fcb-955f-313d9fb81edf"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "923a8418-455e-444f-9ccc-a12b542b4847"
+            },
+            "api_slug": "fundraising_fund_3_companies_1",
+            "created_at": "2025-02-04T18:41:21.416000000Z",
+            "name": "Fundraising Fund 3 (People)",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "dd9736a8-3f7a-4847-a1da-2f5b234ebd56"
+                }
+            ],
+            "parent_object": [
+                "people"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "dd9736a8-3f7a-4847-a1da-2f5b234ebd56"
+            }
+        },
+        {
+            "id": {
+                "workspace_id": "6bfdee64-cc2e-4c13-bbc6-fbb6a4c2b363",
+                "list_id": "bd4d2619-ea9e-4770-8c2b-5ad275b37f40"
+            },
+            "api_slug": "cubo_bridge",
+            "created_at": "2025-02-13T23:18:09.142000000Z",
+            "name": "Cubo Bridge",
+            "workspace_access": "full-access",
+            "workspace_member_access": [
+                {
+                    "level": "full-access",
+                    "workspace_member_id": "dd9736a8-3f7a-4847-a1da-2f5b234ebd56"
+                }
+            ],
+            "parent_object": [
+                "people"
+            ],
+            "created_by_actor": {
+                "type": "workspace-member",
+                "id": "dd9736a8-3f7a-4847-a1da-2f5b234ebd56"
+            }
+        }
+    ]
+}
