@@ -27,11 +27,16 @@ anthropic==0.45.2
 openai==1.60.0
 google-generativeai==0.7.2
 faiss-cpu
+scikit-learn
+python-dotenv
+
 
 # Google API
 google-auth-oauthlib==1.2.0
 google-auth-httplib2==0.2.0
 google-api-python-client==2.120.0
+gspread
+gspread-pandas
 
 # Date/Time
 pytz==2024.1
