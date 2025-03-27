@@ -37,7 +37,13 @@ st.subheader("Intros to Funds Matcher")
 st.text("This is an experimental tool to help find the funds in our network that are most likely to be interested in a company. We enrich data from Attio to help filling the form")
 st.text("The idea is to collect feedbacks, so please be harsh on the results. The idea is to understand what variables aren't being used and what can be better inputted. With only ~150 funds, it's reasonable to enrich data manually so there's a lot of room to evolve.")
 st.text("Most data is from funds we have a high frequency of meetings with, so it's expected that the next version will have better and more balanced results. For now, feedback is very welcome. 🙏")
-st.text("To run, the step-by-step is: 1) Add Company Name 🏢 2) Click 'Search Information' 🔍 3) Check the results ✅ 4) Click 'Run Recommendations' ▶️ 5) Verify the results table 📊")
+st.markdown("""
+1) Add Company Name 🏢 
+2) Click 'Search Information' 🔍 
+3) Check the results ✅ 
+4) Click 'Run Recommendations' ▶️ 
+5) Verify the results table 📊
+""")
 
 # Criando abas
 tab1, tab2 = st.tabs(["Search Information", "Parameters"])
@@ -237,7 +243,7 @@ with tab1:
 
     # Formulário para dados da empresa
     with st.form("company_form"):
-        st.subheader("Company Information")
+        st.subheader("🏢 Company Information")
         
         col1, col2 = st.columns(2)
         
@@ -356,7 +362,7 @@ with tab2:
             
             st.success("Parâmetros salvos com sucesso!")
 
-st.subheader("Analysis Results")
+st.subheader("📊 Analysis Results")
 
 st.text("This demo takes a while to run (~1.5 min) since it runs fund by fund and AWS quotas haven't been increased yet. Please be patient.")
 
