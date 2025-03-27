@@ -32,8 +32,12 @@ st.set_page_config(
 )
 
 # Título principal
-st.title("Walter Intro Maker")
+st.title("🤖 Walter Intro Maker")
 st.subheader("Intros to Funds Matcher")
+st.text("This is an experimental tool to help find the funds in our network that are most likely to be interested in a company. We enrich data from Attio to help filling the form")
+st.text("The idea is to collect feedbacks, so please be harsh on the results. The idea is to understand what variables aren't being used and what can be better inputted. With only ~150 funds, it's reasonable to enrich data manually so there's a lot of room to evolve.")
+st.text("Most data is from funds we have a high frequency of meetings with, so it's expected that the next version will have better and more balanced results. For now, feedback is very welcome. 🙏")
+st.text("To run, the step-by-step is: 1) Add Company Name 🏢 2) Click 'Search Information' 🔍 3) Check the results ✅ 4) Click 'Run Recommendations' ▶️ 5) Verify the results table 📊")
 
 # Criando abas
 tab1, tab2 = st.tabs(["Search Information", "Parameters"])
@@ -41,7 +45,7 @@ tab1, tab2 = st.tabs(["Search Information", "Parameters"])
 # Inicializar estado da sessão para parâmetros e resultados
 if 'parameters' not in st.session_state:
     st.session_state.parameters = {
-        "batch_size": 10,
+        "batch_size": 6,
         "surviving_percentage": 1,
         "gdoc_id": "1AkNbFeXe5dvuzBVhFQUDfPh7B51YmjhasSGRUW4mMm0",
         "use_docs": False
@@ -62,9 +66,9 @@ if 'company_data' not in st.session_state:
         "description_company": "",
         "description_person": "",
         "industry": "",
-        "round_size": 10,
+        "round_size": 10.0,
         "round_type": "Series A",
-        "round_commitment": 2,
+        "round_commitment": 2.0,
         "leader_or_follower": "leader",
         "fund_closeness": "Close",
         "fund_quality": "High",
@@ -72,10 +76,6 @@ if 'company_data' not in st.session_state:
     }
 
 # Definir a estrutura de saída para o LLM
-class Round(TypedDict):
-    round_size: float
-    round_type: str
-    round_commitment: float
 
 class CompanyInfo(TypedDict):
     """
@@ -83,7 +83,9 @@ class CompanyInfo(TypedDict):
     """
     description_company: str
     description_person: Optional[str]
-    round: Round
+    round_size: float
+    round_type: str
+    round_commitment: float
     industry: str
     observations: str
 
@@ -97,22 +99,22 @@ def extract_company_info(company_record):
     llm = llm.with_structured_output(CompanyInfo)
     
     prompt = f"""
-    Baseado nas informações da empresa a seguir, extraia dados para preencher um formulário.
+    Based on the company information below, extract data to fill a form.
     
-    Informações da empresa:
+    Company information:
     {company_record}
     
-    Por favor, forneça as seguintes informações (se disponíveis):
-    1. Uma descrição completa da empresa (description_company)
-    2. A indústria/setor de atuação (industry) - forneça múltiplos setores separados por vírgulas
-    3. Informações sobre a rodada de investimento:
-       - Tamanho aproximado em milhões de USD (round_size)
-       - Tipo de rodada (round_type) por exemplo: Seed, Series A, etc.
-       - Quanto já foi investido (round_commitment). In doubt, make it 0.
-    4. Descrição do representante ou CEO (description_person)
-    5. Any other relevant information (observations). Try to include things like the company's website, employee count, list  earances... any information.
+    Please provide the following information (if available):
+    1. A complete description of the company (description_company)
+    2. The industry/sector of the company (industry) - provide the sectors separated by commas. Don't invent unless a sector is very clear. Usually you will find the sector in the attio information.
+    3. Information about the fundraising round:
+       - Approximate size in millions of USD (round_size)
+       - Type of round (round_type) for example: Seed, Series A, etc.
+       - How much has already been invested (round_commitment). In doubt, make it 0.
+    4. Description of the representative or CEO (description_person)
+    5. Any other relevant information (observations). Try to include things like the company's website, employee count, traction... any information.
     
-    Se alguma informação não estiver disponível, coloque ["NOT FOUND"]
+    If any information is not available, put ["NOT FOUND"]
     """
     
     # O LLM já retornará diretamente a estrutura definida em CompanyInfo
@@ -127,8 +129,8 @@ def extract_company_info(company_record):
                 company_data["round_size"] = float(company_data["round_size"])
                 company_data["round_commitment"] = float(company_data["round_commitment"])
             except (ValueError, TypeError):
-                company_data["round_size"] = 10  # valor padrão
-                company_data["round_commitment"] = 0
+                company_data["round_size"] = 10.0  # valor padrão
+                company_data["round_commitment"] = 0.0
                 
         return company_data
     except Exception as e:
@@ -137,7 +139,9 @@ def extract_company_info(company_record):
             "description_company": "",
             "description_person": "",
             "industry": "",
-            "round": {"round_size": 10, "round_type": "", "round_commitment": 0},
+            "round_size": 10.0,
+            "round_type": "",
+            "round_commitment": 0.0,
             "observations": f"Erro ao processar: {str(e)}"
         }
 
@@ -149,7 +153,7 @@ async def enrich_company_information(company_name: str, industry: str) -> dict:
         query_market: str
 
     # Criar queries para busca
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
     
     query_prompt = f"""
     Crie duas queries de busca diferentes para obter informações sobre:
@@ -189,14 +193,14 @@ async def enrich_company_information(company_name: str, industry: str) -> dict:
 
 with tab1:
     # Campo para buscar empresa por nome
-    company_name = st.text_input("Buscar empresa por nome", value=st.session_state.company_data["company"])
+    company_name = st.text_input("Search Company by name", value=st.session_state.company_data["company"])
 
     # Adicionar seção de informações enriquecidas
-    check = st.checkbox("Enrich with web search (takes more time, not performing well yet)")
+    check = st.checkbox("Enrich with web search (takes more time, not performing well yet) 🌐", disabled=True)
     
-    if st.button("Buscar informações"):
+    if st.button("Search Information"):
         try:
-            with st.spinner("Buscando informações da empresa..."):
+            with st.spinner("Searching for company information..."):
                 # Obter informações da empresa usando a função get_record_id_from_name
                 company_record = get_record_id_from_name(company_name, "companies")
                 
@@ -209,27 +213,27 @@ with tab1:
                     **company_info
                 })
             if check:
-                with st.expander("Informações Adicionais"):
-                    with st.spinner("Buscando informações complementares..."):
+                with st.expander("🌐 Internet Information"):
+                    with st.spinner("Searching for internet information..."):
                         enriched_info = asyncio.run(enrich_company_information(company_name, company_info))
                         
                         # Exibir resultados
-                        st.text("Informações coletadas da web:")
+                        st.text("Internet information collected: 🌍")
                         st.markdown(enriched_info["summary"].content)
                         
-                        st.write("Fontes sobre a empresa:")
+                        st.write("Sources about the company:")
                         for result in enriched_info["company_info"]:
                             st.write(f"- [{result.get('title', 'Link')}]({result.get('url', '#')})")
                     
-                        st.write("Fontes sobre o mercado:")
+                        st.write("Sources about the market:")
                         for result in enriched_info["market_info"]:
                             st.write(f"- [{result.get('title', 'Link')}]({result.get('url', '#')})")
                         
                         
 
-                        st.success(f"Informações de {company_name} encontradas e preenchidas!")
+                        st.success(f"Information for {company_name} found and filled!")
         except Exception as e:
-            st.error(f"Erro ao buscar informações: {str(e)}")
+            st.error(f"Error searching for information: {str(e)}")
 
     # Formulário para dados da empresa
     with st.form("company_form"):
@@ -257,31 +261,36 @@ with tab1:
         
         with col2:
             st.text("Fundraising Information")
-            round_size = st.number_input("Round Size (in millions of USD)", value=st.session_state.company_data["round_size"], help="Tamanho da rodada em milhões de USD")
-            round_type = st.text_input("Funding Type", value=st.session_state.company_data["round_type"])
-            round_commitment = st.number_input("Round Commitment (in millions of USD)", value=st.session_state.company_data["round_commitment"], help="Tamanho da rodada em milhões de USD")
+            round_size = st.number_input("Round Size (in millions of USD)", value=st.session_state.company_data["round_size"], help="Used to analyze funds with compatible check size", step=0.1)
+            round_type = st.text_input("Funding Type", value=st.session_state.company_data["round_type"], help="Used to analyze funds with preferred round type")
+            round_commitment = st.number_input("Round Commitment (in millions of USD)", value=st.session_state.company_data["round_commitment"], help="Used to analyze funds with compatible check size", step=0.1)
             leader_or_follower = st.selectbox(
                 "Position in Round (Are we looking for a leader or a follower?)",
                 options=["leader", "follower", "both"],
-                index=["leader", "follower", "both"].index(st.session_state.company_data["leader_or_follower"])
+                index=["leader", "follower", "both"].index(st.session_state.company_data["leader_or_follower"]),
+                help="Used to analyse funds' preferences of positioning in rounds"
             )
             fund_closeness = st.selectbox(
                 "Fund Proximity (How close we want the fund to be to us?)",
                 options=["Close", "Distant", "Irrelevant"],
-                index=["Close", "Distant", "Irrelevant"].index(st.session_state.company_data["fund_closeness"])
+                index=["Close", "Distant", "Irrelevant"].index(st.session_state.company_data["fund_closeness"]),
+                help="Used to prioritize proximity with Norte. Close gets funds that have proximity higher than 3, Distant gets funds that have proximity lower than 3 and Irrelevant doesn't filter"
             )
 
             fund_quality = st.selectbox(
                 "Fund Quality",
                 options=["High", "Medium", "Low"],
-                index=["High", "Medium", "Low"].index(st.session_state.company_data["fund_quality"])
+                index=["High", "Medium", "Low"].index(st.session_state.company_data["fund_quality"]),
+                help="Used to prioritize funds with higher quality. High gets funds with quality perception higher than 4, Medium gets funds with quality perception higher than 3 and Low gets funds with quality perception lower than 3"
             )
             
         observations = st.text_area(
-            "Additional Observations", 
+            "Additional Observations (add any peculiarities about the funds you are looking for here)", 
             value=st.session_state.company_data["observations"]
         )
         
+        st.text("After filling in the form, click 'Run Recommendations' to analyze compatible funds.")
+
         submitted = st.form_submit_button("Run Recommendations")
         
         if submitted:
@@ -305,7 +314,8 @@ with tab1:
                 "company": company,
                 "description_company": description_company,
                 "description_person": description_person,
-                "round": {"size": round_size, "Funding": round_type},
+                "round_size": round_size,
+                "round_type": round_type,
                 "round_commitment": round_commitment,
                 "leader_or_follower": leader_or_follower,
                 "industry": industry,
@@ -324,7 +334,7 @@ with tab2:
     
     # Formulário para parâmetros
     with st.form("parameters_form"):
-        batch_size = st.slider("Batch Size", 1, 50, int(st.session_state.parameters.get("batch_size", 10)))
+        batch_size = st.slider("Batch Size", 1, 50, int(st.session_state.parameters.get("batch_size", 6)))
         surviving_percentage = st.slider("Survival Percentage", 0.1, 1.0, float(st.session_state.parameters.get("surviving_percentage", 1)), 0.1)
         
         # Adicionar campo para ID do Google Doc
@@ -348,7 +358,7 @@ with tab2:
 
 st.subheader("Analysis Results")
 
-st.info("This demo takes a while to run since it runs fund by fund. Please be patient.")
+st.text("This demo takes a while to run (~1.5 min) since it runs fund by fund and AWS quotas haven't been increased yet. Please be patient.")
 
 # Verificar se o processamento deve começar
 if st.session_state.progress == "starting" and st.session_state.inputs:
@@ -395,8 +405,8 @@ if st.session_state.results:
     # Criar DataFrame para exibição
     fund_data = []
     for fund in st.session_state.results["top_funds"]:
-        cols_to_show = ["proximity", "Fund Quality","description", "leader?", "prefered_industry_enriched"]
-        df.rename(columns={"vc_quality_perception": "Fund Quality"}, inplace=True)
+        df.rename(columns={"vc_quality_perception": "Fund Quality", "proximity": "Fund Proximity", "description": "Fund Description", "funding_rounds_1st_check": "Funding Rounds", "investment_geography": "Investment Geography"}, inplace=True)
+        cols_to_show = ["Fund Proximity", "Fund Quality", "observations", "leader?", "prefered_industry_enriched", "investment_range", "Investment Geography", "Funding Rounds", "intros_made", "intros_received", "Fund Description"]
         # Buscar todas as informações do fundo no DataFrame original
         fund_info = df[cols_to_show][df["name"] == fund.fund_name].iloc[0].to_dict()
         fund_data.append({
@@ -409,17 +419,12 @@ if st.session_state.results:
     result_df = pd.DataFrame(fund_data)
     st.dataframe(result_df)
     
-    # Botão para baixar resultados como CSV
-    csv = result_df.to_csv(index=False)
-    st.download_button(
-        label="Download Results (CSV)",
-        data=csv,
-        file_name="selected_funds.csv",
-        mime="text/csv"
-    )
+    url = "https://docs.google.com/spreadsheets/d/11I9QFSMFn7UBfV0wz0-hAYgWtIKytTVnWA9pjquwgdk"
+    st.text(f"All data comes from attio and a spreadsheet. Feel free to correct the data / tell Marcio to correct if you see a clear inconsistency and suggest improvements.")
+    st.link_button("Spreadsheet", url)
 
 elif st.session_state.progress is None:
-    st.info("Fill in the company information and click 'Generate Introduction' to analyze compatible funds.")
+    st.info("Fill in the company information and click 'Run Recommendations' to analyze compatible funds.", icon="🔍")
 
 # Rodapé
 st.markdown("---")

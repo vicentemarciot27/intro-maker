@@ -131,7 +131,7 @@ def filter_data(df, inputs):
     df["proximity"] = df["proximity"].astype(float, errors='ignore')
     
     # Determinar o range de investimento com base no tamanho da rodada
-    round_size = float(str(inputs["round"]["size"]).replace("M USD", "").strip())
+    round_size = float(str(inputs["round_size"]).replace("M USD", "").strip())
     
     if round_size < 1:
         company_investment_range = ["< USD 1mn"]
@@ -154,7 +154,11 @@ def filter_data(df, inputs):
         df = df[df["leader?"].str.lower().str.contains("leader")]
     elif inputs["leader_or_follower"] == "follower":
         df = df[df["leader?"].str.lower().str.contains("follower")]
-    
+
+    # change fund quality and proximity to float with 0 decimals
+    df["vc_quality_perception"] = df["vc_quality_perception"].astype(float).round(0)
+    df["proximity"] = df["proximity"].astype(float).round(0)
+
     # Filtrar por qualidade do fundo, se presente nos inputs
     if "fund_quality" in inputs:
         if inputs["fund_quality"] == "High":
@@ -181,16 +185,16 @@ def batch_splitter(df, batch_size):
 # Função para processar um único lote
 def process_batch(batch, inputs, parameters, llm, previous_scores=None, gdoc_content=None, batch_index=0, total_batches=0):
     use_docs = parameters.get("use_docs", False)
-    # Preparar orientação baseada em pontuações anteriores
-    previous_scores_guidance = ""
-    if previous_scores:
-        # Criar exemplos de pontuações anteriores para manter consistência
-        examples = [(s.fund_name, s.score) for s in previous_scores[:5]]
-        previous_scores_guidance = f""" 
-        IMPORTANT: Keep consistency with the scores already assigned to other funds.
-        Examples of previous scores: {examples}
-        Remember that the total score must be in an approximate scale with the scores already assigned.
-        """
+    
+    # Usar o exemplo de razão em vez de pontuações anteriores
+    reason_example = "(Industry: 5, Geography: 5, Funding Round: 5, Description: 1, Observations: 4, Situational: 3) Industry: The fund has a broadly tech-agnostic thesis with one intersection (technology) matching BR Sports, scoring 5; Geography: Investing in Latam fits well with a Brazil-based company, scoring 5; Funding Round: With a 'regardless' stance, the fund qualifies for pre‐seed rounds, scoring 5; Description: The general startup focus earns a modest 1 point; Observations: Its 'Top-tier fund' remark adds 4 points; Other Aspects: A high VC quality rating (5) adds 3 points. Overall, a strong local and quality profile benefits the score."
+    
+    previous_scores_guidance = f""" 
+    IMPORTANT: Format your reason similar to this example:
+    {reason_example}
+    
+    This helps maintain consistency in scoring across all funds.
+    """
     
     system_prompt = """
     You are a fund score agent. Score every fund.
@@ -201,6 +205,7 @@ def process_batch(batch, inputs, parameters, llm, previous_scores=None, gdoc_con
     - funding_rounds_1st_check (the first check round should be compatible with the round type) | 0-5 points
     - description (the description should be compatible with the company's description) | 0-3 points
     - observations (Use it as a situational reference of the fund) | -5 to 5 points
+    - situational (any other aspect that should be considered when scoring the funds) | 0 to 3 points
 
     Begin "reason" with a summary of the decision. Don't use words like "perfect" and be objective. End the reason with observations about the decision.
     """
@@ -225,7 +230,8 @@ def process_batch(batch, inputs, parameters, llm, previous_scores=None, gdoc_con
     - company: the company we are looking for a fund to invest in
     - description_company: the description of the company we are looking for a fund to invest in
     - description_person: the description of the person we are looking for a fund to invest in
-    - round: The round size
+    - round_size: The round size. We are looking for funds that have a round size in the range round_size - round_commitment.
+    - round_type: The round type. We are looking for funds that are willing to invest in this round type.
     - round_commitment: What is already taken in the round. We are looking for someone to invest in the range round_commitment - round.
     - leader_or_follower: If we want a leader, we should put leader. If we want a follower, we should put follower.
     - industry: the industry we are looking for a fund to invest in
@@ -272,8 +278,8 @@ def process_batch(batch, inputs, parameters, llm, previous_scores=None, gdoc_con
 
 # Pontuação dos fundos com paralelização
 def score_fund(df, inputs, parameters, model="claude"):
-    cols_for_ai = ["name", "investment_geography", "prefered_industry_enriched", "description", "observations"]
-    df = df[cols_for_ai]
+    cols_for_ai = ["name", "investment_geography", "prefered_industry_enriched", "description", "observations", "funding_rounds_1st_check", "vc_quality_perception", "proximity"]
+
     if model == "claude":
         llm_factory = configure_claude
     elif model == "o3":
@@ -302,57 +308,41 @@ def score_fund(df, inputs, parameters, model="claude"):
     max_workers = min(parameters.get("max_workers", 4), len(batches))
     
     print(f"Iniciando processamento paralelo com {max_workers} workers para {len(batches)} lotes")
+    print(f"Tamanho do dataframe: {df.shape}")
+    print(f"Tamanho de cada batch: {[batch.shape for batch in batches]}")
     
-    # Fase 1: Processar primeiro lote para obter pontuações de referência
+    # Processar todos os lotes em paralelo, sem diferenciar o primeiro lote
     if batches:
-        llm = llm_factory()
-        first_batch_scores = process_batch(
-            batches[0], 
-            inputs, 
-            parameters, 
-            llm, 
-            previous_scores=None, 
-            gdoc_content=gdoc_content,
-            batch_index=0,
-            total_batches=len(batches)
-        )
-        raw_scores.extend(first_batch_scores)
-        
-        # Fase 2: Processar lotes restantes em paralelo
-        remaining_batches = batches[1:]
-        
-        if remaining_batches:
-            # Executar processamento paralelo
-            with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-                # Criar um LLM para cada worker
-                futures = []
-                for i, batch in enumerate(remaining_batches):
-                    # Criar uma nova instância do modelo para cada worker
-                    worker_llm = llm_factory()
-                    
-                    # Chamar diretamente a função sem usar partial
-                    # Isso evita a confusão de argumentos que estava ocorrendo
-                    futures.append(
-                        executor.submit(
-                            process_batch,
-                            batch=batch,
-                            inputs=inputs,
-                            parameters=parameters,
-                            llm=worker_llm,
-                            previous_scores=raw_scores,
-                            gdoc_content=gdoc_content,
-                            batch_index=i+1,
-                            total_batches=len(batches)
-                        )
-                    )
+        # Executar processamento paralelo
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            # Criar um LLM para cada worker
+            futures = []
+            for i, batch in enumerate(batches):
+                # Criar uma nova instância do modelo para cada worker
+                worker_llm = llm_factory()
                 
-                # Coletar resultados à medida que são concluídos
-                for future in concurrent.futures.as_completed(futures):
-                    try:
-                        batch_scores = future.result()
-                        raw_scores.extend(batch_scores)
-                    except Exception as e:
-                        print(f"Erro em worker thread: {str(e)}")
+                # Usar o reason_example em vez de raw_scores anteriores
+                futures.append(
+                    executor.submit(
+                        process_batch,
+                        batch=batch[cols_for_ai],
+                        inputs=inputs,
+                        parameters=parameters,
+                        llm=worker_llm,
+                        previous_scores=None,  # Não use scores anteriores
+                        gdoc_content=gdoc_content,
+                        batch_index=i,
+                        total_batches=len(batches)
+                    )
+                )
+            
+            # Coletar resultados à medida que são concluídos
+            for future in concurrent.futures.as_completed(futures):
+                try:
+                    batch_scores = future.result()
+                    raw_scores.extend(batch_scores)
+                except Exception as e:
+                    print(f"Erro em worker thread: {str(e)}")
 
     return raw_scores
 
@@ -368,7 +358,7 @@ def normalize_scores(raw_scores):
         return [
             FundScore(
                 fund_name=score.fund_name,
-                score=100 * (score.score - min_score) / (max_score - min_score),
+                score=max_score * (score.score - min_score) / (max_score - min_score),
                 reason=score.reason
             ) for score in raw_scores
         ]
@@ -430,7 +420,7 @@ def run_fund_selection_workflow(inputs, parameters):
     
     # Selecionar os melhores fundos
     print("Selecionando melhores fundos...")
-    surviving_percentage = parameters.get("surviving_percentage", 0.5)
+    surviving_percentage = parameters.get("surviving_percentage", 1.0)
     top_funds = select_top_funds(normalized_scores, surviving_percentage)
     
     # Extrair nomes dos fundos selecionados
@@ -447,8 +437,9 @@ if __name__ == "__main__":
         "company": "Brendi",
         "description_company": "Brendi is a company that creates AI agents to sell food in Brazilian restaurants via delivery. They are going to be the next ifood",
         "description_person": "Daniel is the CEO of Brendi. he studied at ITA, is very young and energetic",
-        "round": {"size": 10, "Funding": "Series A"},
-        "round_commitment": "2M USD",
+        "round_size": 10,
+        "round_type": "Series A",
+        "round_commitment": 2,
         "leader_or_follower": "leader",
         "industry": "AI Solutions, Food Delivery, Restaurant Management, AI Agents, Embedded Finance",
         "fund_closeness": "Distant",
